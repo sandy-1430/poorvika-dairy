@@ -1,0 +1,221 @@
+{
+    "Dairy": [
+        {
+            "id": "1",
+            "title": "MILK",
+            "image": "images/dairy-milk.png"
+        },
+        {
+            "id": "2",
+            "title": "GHEE",
+            "image": "images/dairy-ghee.png"
+        },
+        {
+            "id": "3",
+            "title": "PANEER",
+            "image": "images/dairy-paneer.png"
+        },
+        {
+            "id": "4",
+            "title": "BUTTER",
+            "image": "images/dairy-butter.png"
+        },
+        {
+            "id": "5",
+            "title": "BUTTERMILK",
+            "image": "images/dairy-buttermilk.png"
+        },
+        {
+            "id": "6",
+            "title": "CURD",
+            "image": "images/dairy-curd.png"
+        },
+        {
+            "id": "7",
+            "title": "LASSI",
+            "image": "images/dairy-lassi.png"
+        },
+        {
+            "id": "8",
+            "title": "ICECREAMS",
+            "image": "images/dairy-icecream.png"
+        }
+    ],
+    "vegetables": [
+        {
+            "id": "1",
+            "title": "MILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "2",
+            "title": "GHEE",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "3",
+            "title": "PANEER",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "4",
+            "title": "BUTTER",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "5",
+            "title": "BUTTERMILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "6",
+            "title": "CURD",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "7",
+            "title": "LASSI",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "8",
+            "title": "ICECREAMS",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "9",
+            "title": "BUTTER",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "10",
+            "title": "BUTTERMILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "11",
+            "title": "CURD",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "12",
+            "title": "LASSI",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "13",
+            "title": "ICECREAMS",
+            "image": "images/milk.png"
+        }
+    ],
+    "eggs": [
+        {
+            "id": "1",
+            "title": "MILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "2",
+            "title": "GHEE",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "3",
+            "title": "PANEER",
+            "image": "images/milk.png"
+        }
+    ],
+    "rice": [
+        {
+            "id": "1",
+            "title": "MILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "2",
+            "title": "GHEE",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "3",
+            "title": "PANEER",
+            "image": "images/milk.png"
+        }
+    ],
+    "fertilizers": [
+        {
+            "id": "1",
+            "title": "MILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "2",
+            "title": "GHEE",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "3",
+            "title": "PANEER",
+            "image": "images/milk.png"
+        }
+    ],
+    "services": [
+        {
+            "id": "1",
+            "title": "MILK",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "2",
+            "title": "GHEE",
+            "image": "images/milk.png"
+        },
+        {
+            "id": "3",
+            "title": "PANEER",
+            "image": "images/milk.png"
+        }
+    ],
+    "home_product": [
+        {
+            "id": "1",
+            "title": "DAIRY",
+            "image": "images/dairy-product.png"
+        },
+        {
+            "id": "2",
+            "title": "VEGETABLES",
+            "image": "images/vegetables-product.png"
+        },
+        {
+            "id": "3",
+            "title": "EGG",
+            "image": "images/egg-product.png"
+        },
+        {
+            "id": "4",
+            "title": "RICE & PULSES",
+            "image": "images/rice-product.png"
+        },
+        {
+            "id": "5",
+            "title": "FERTILISER",
+            "image": "images/fertilizers-product.png"
+        },
+        {
+            "id": "6",
+            "title": "FARM VISIT",
+            "image": "images/farm-product.png"
+        },
+        {
+            "id": "7",
+            "title": "GOUPOOJA",
+            "image": "images/goupooja-product.png"
+        },
+        {
+            "id": "8",
+            "title": "DONATE",
+            "image": "images/donate-product.png"
+        }
+    ]
+}
