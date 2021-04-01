@@ -4,16 +4,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import formatCurrency from "../currency";
+import { addToCart } from "../actions/cartActions";
 
-export default function Productdetails(props) {
+const Productdetails = ({ match }) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { product, loading, error } = productDetails;
 
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   useEffect(() => {
-    dispatch(detailsProduct());
+    dispatch(detailsProduct(match.params.id));
   }, [detailsProduct]);
 
+  const addtocart = () => {
+    dispatch(addToCart(match.params.id));
+  };
   return (
     <div>
       <div className="container cst_container">
@@ -21,13 +28,13 @@ export default function Productdetails(props) {
         {error && <div>{error}</div>}
         {product && (
           <div className="row mx-0 my-5 align-items-center justify-content-center">
-            <div className="col-md-4">
+            <div className="col-md-3">
               <img src={product.image} alt="Logo" width="100%" />
             </div>
             <div className="col-md-6">
               <h2>{product.title}</h2>
-              <p className="green-price-txt">{formatCurrency(product.price)}</p>
               <p className="desc-wid">{product.description}</p>
+              <p className="green-price-txt">{formatCurrency(product.price)}</p>
               <button type="button" className="btn btn-outline-success mr-2">
                 Instock
               </button>
@@ -35,7 +42,11 @@ export default function Productdetails(props) {
                 Out of Stock
               </button>
               <br></br>
-              <button type="button" className="btn btn-warning mr-3 my-3">
+              <button
+                type="button"
+                onClick={addtocart}
+                className="btn btn-warning mr-3 my-3"
+              >
                 Add To Cart
               </button>
             </div>
@@ -44,4 +55,5 @@ export default function Productdetails(props) {
       </div>
     </div>
   );
-}
+};
+export default Productdetails;

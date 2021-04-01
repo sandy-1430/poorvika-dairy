@@ -15,12 +15,8 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route path="/product">
-            <Productlist></Productlist>
-          </Route>
-          <Route path="/productdetail">
-            <Productdetails />
-          </Route>
+          <Route path="/product/:id" component={Productdetails}></Route>
+          <Route path="/product" component={Productlist}></Route>
           <Route exact path="/">
             <Home></Home>
           </Route>

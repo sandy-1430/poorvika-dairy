@@ -20,7 +20,7 @@ function productlistReducer(state = {}, action) {
   }
 }
 
-function productDetailsReducer(state = { product: [] }, action) {
+function productDetailsReducer(state = {}, action) {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return { loading: true };

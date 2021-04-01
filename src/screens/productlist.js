@@ -18,26 +18,26 @@ export default function Productlist() {
 
   const productdetail = (product_id) => {
     dispatch(detailsProduct(product_id));
-    history.push("/productdetail/" + product_id);
-    console.log(product_id);
+    history.push("/product/" + product_id);
   };
 
   return (
     <div className="Productlist">
       {loading && <LoadingBox></LoadingBox>}
+      {error && <div>{error}</div>}
       <div className="container cst_container">
         <div className="row mx-0 my-4">
           {products &&
             products.map((product) => (
               <div className="col-md-3 mb-3">
                 <div className="card baseBlock">
-                  <a onClick={() => productdetail(product.id)}>
+                  <div onClick={() => productdetail(product.id)}>
                     <img
                       src={product.image}
                       className="card-img-top"
                       alt={product.title}
                     />
-                  </a>
+                  </div>
                   <div className="card-body">
                     <h4 className="card-title">{product.category}</h4>
                     <p className="card-text">{formatCurrency(product.price)}</p>

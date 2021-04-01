@@ -8,9 +8,11 @@ import {
 } from "./reducers/productReducers";
 
 const userInfo = Cookie.getJSON("userInfo") || null;
+const productdetail = Cookie.getJSON("productdetail") || null;
 
 const initialState = {
   userSignin: { userInfo },
+  productDetails: { productdetail },
 };
 const reducer = combineReducers({
   userSignin: userSigninReducer,

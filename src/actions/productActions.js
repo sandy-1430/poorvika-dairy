@@ -1,5 +1,6 @@
 import Axios from "axios";
 import axios from "axios";
+import Cookie from "js-cookie";
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,

@@ -20,22 +20,22 @@ export default function Footer() {
               <h6>About Us</h6>
               <ul className="footer-links">
                 <li>
-                  <a href="">Home</a>
+                  <a href="javascript:void(0)">Home</a>
                 </li>
                 <li>
-                  <a href="">What We Do</a>
+                  <a href="javascript:void(0)">What We Do</a>
                 </li>
                 <li>
-                  <a href="">Teams</a>
+                  <a href="javascript:void(0)">Teams</a>
                 </li>
                 <li>
-                  <a href="">Products</a>
+                  <a href="javascript:void(0)">Products</a>
                 </li>
                 <li>
-                  <a href="">Terms And Conditions</a>
+                  <a href="javascript:void(0)">Terms And Conditions</a>
                 </li>
                 <li>
-                  <a href="">Privacy Policy</a>
+                  <a href="javascript:void(0)">Privacy Policy</a>
                 </li>
               </ul>
             </div>
@@ -44,19 +44,19 @@ export default function Footer() {
               <h6>Support</h6>
               <ul className="footer-links">
                 <li>
-                  <a href="">Subscription</a>
+                  <a href="javascript:void(0)">Subscription</a>
                 </li>
                 <li>
-                  <a href="">Contact Us</a>
+                  <a href="javascript:void(0)">Contact Us</a>
                 </li>
                 <li>
-                  <a href="">Contribute</a>
+                  <a href="javascript:void(0)">Contribute</a>
                 </li>
                 <li>
-                  <a href="">Privacy Policy</a>
+                  <a href="javascript:void(0)">Privacy Policy</a>
                 </li>
                 <li>
-                  <a href="">Sitemap</a>
+                  <a href="javascript:void(0)">Sitemap</a>
                 </li>
               </ul>
             </div>
@@ -64,19 +64,19 @@ export default function Footer() {
               <h6>Support</h6>
               <ul className="footer-links">
                 <li>
-                  <a href="">Subscription</a>
+                  <a href="javascript:void(0)">Subscription</a>
                 </li>
                 <li>
-                  <a href="">Contact Us</a>
+                  <a href="javascript:void(0)">Contact Us</a>
                 </li>
                 <li>
-                  <a href="">Contribute</a>
+                  <a href="javascript:void(0)">Contribute</a>
                 </li>
                 <li>
-                  <a href="">Privacy Policy</a>
+                  <a href="javascript:void(0)">Privacy Policy</a>
                 </li>
                 <li>
-                  <a href="">Sitemap</a>
+                  <a href="javascript:void(0)">Sitemap</a>
                 </li>
               </ul>
             </div>

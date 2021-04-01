@@ -82,8 +82,6 @@ export default function Header() {
 
   const verifyotp = () => {
     if (userInfo.data.OTP === otp) {
-      console.log(userInfo.data.OTP);
-      Setname(userInfo.data.OTP);
       setOpen(false);
     }
   };
@@ -122,409 +120,414 @@ export default function Header() {
 
   return (
     <div className="header">
-      {loading && (
+      {loading && loading ? (
         <div>
           <LoadingBox />
         </div>
-      )}
-      <div className="d-flex flex-wrap align-items-center justify-content-center top-header">
-        <div className="cst_brand">
-          <img src="images/logo.png" className="header-logo" />
-        </div>
-        <div className="cst_top_nav d-flex flex-wrap align-items-center">
-          <ul className="d-flex m-0 p-0">
-            <li>
-              <a>Our Story</a>
-            </li>
-            <li>
-              <a>Our Suppliers</a>
-            </li>
-            <li>
-              <a>Our Blog</a>
-            </li>
-          </ul>
-          <TextField
-            id="outlined-secondary"
-            label="Search"
-            variant="outlined"
-            size="small"
-            className="search-input ml-5 mr-0"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment>
-                  <IconButton className="icon-btn">
-                    <SearchIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-          {name ? (
-            <div className="d-flex align-items-center">
-              <Button className="ml-3" onClick={profileClick}>
-                <AccountCircleIcon className="mr-1" />
-                <b>Hello {userInfo.data.OTP}</b>
-              </Button>
-              <StyledMenu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={profileClose}
-              >
-                <MenuItem onClick={onlogout}>Log Out</MenuItem>
-              </StyledMenu>
+      ) : (
+        <div>
+          <div className="d-flex flex-wrap align-items-center justify-content-center top-header">
+            <div className="cst_brand">
+              <img src="images/logo.png" className="header-logo" />
             </div>
-          ) : (
-            <Button className="login-btn ml-lg-4" onClick={handleOpen}>
-              Sign In / Register
-            </Button>
-          )}
-          <div className="d-flex flex-wrap flex-column align-items-center ml-lg-4">
-            <ShoppingCartIcon />
-            My Cart
+            <div className="cst_top_nav d-flex flex-wrap align-items-center">
+              <ul className="d-flex m-0 p-0">
+                <li>
+                  <a>Our Story</a>
+                </li>
+                <li>
+                  <a>Our Suppliers</a>
+                </li>
+                <li>
+                  <a>Our Blog</a>
+                </li>
+              </ul>
+              <TextField
+                id="outlined-secondary"
+                label="Search"
+                variant="outlined"
+                size="small"
+                className="search-input ml-5 mr-0"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment>
+                      <IconButton className="icon-btn">
+                        <SearchIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              {name ? (
+                <div className="d-flex align-items-center">
+                  <Button className="ml-3" onClick={profileClick}>
+                    <AccountCircleIcon className="mr-1" />
+                    <b>Hello {userInfo.data.OTP}</b>
+                  </Button>
+                  <StyledMenu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={profileClose}
+                  >
+                    <MenuItem onClick={onlogout}>Log Out</MenuItem>
+                  </StyledMenu>
+                </div>
+              ) : (
+                <Button className="login-btn ml-lg-4" onClick={handleOpen}>
+                  Sign In / Register
+                </Button>
+              )}
+              <div className="d-flex flex-wrap flex-column align-items-center ml-lg-4">
+                <ShoppingCartIcon />
+                My Cart
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="bottom-header">
-        <div class="content">
-          <ul class="exo-menu">
-            <li>
-              <a href="#">
-                {" "}
-                Location
-                <LocationOnIcon fontSize="small" className="menu_icn" />
-              </a>
-              <div class="contact"></div>
-            </li>
-            <li class="images-drop-down">
-              <a href="#">
-                {" "}
-                Dairy
-                <ArrowDropDownIcon className="menu_icn" />
-              </a>
-              <div class="Images">
-                <div class="row m-0">
-                  {data.Dairy.map((dairy) => (
-                    <div class="col-md-1 text-center">
-                      <a>
-                        <img
-                          width="100%"
-                          class="img-responsive"
-                          src={dairy.image}
-                        />
-                        <h4>{dairy.title}</h4>
-                      </a>
+          <div className="bottom-header">
+            <div class="content">
+              <ul class="exo-menu">
+                <li>
+                  <a href="#">
+                    {" "}
+                    Location
+                    <LocationOnIcon fontSize="small" className="menu_icn" />
+                  </a>
+                  <div class="contact"></div>
+                </li>
+                <li class="images-drop-down">
+                  <a href="#">
+                    {" "}
+                    Dairy
+                    <ArrowDropDownIcon className="menu_icn" />
+                  </a>
+                  <div class="Images">
+                    <div class="row m-0">
+                      {data.Dairy.map((dairy) => (
+                        <div class="col-md-1 text-center">
+                          <a>
+                            <img
+                              width="100%"
+                              class="img-responsive"
+                              src={dairy.image}
+                            />
+                            <h4>{dairy.title}</h4>
+                          </a>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </li>
-
-            <li class="images-drop-down">
-              <a href="#">
-                {" "}
-                Vegetables
-                <ArrowDropDownIcon className="menu_icn" />
-              </a>
-              <div class="Images">
-                <div class="row m-0">
-                  {data.vegetables.map((dairy) =>
-                    dairy.id < 8 ? (
-                      <div class="col-md-1 text-center">
-                        <a>
-                          <img
-                            width="100%"
-                            class="img-responsive"
-                            src={dairy.image}
-                          />
-                          <h4>{dairy.title}</h4>
-                        </a>
-                      </div>
-                    ) : (
-                      ""
-                    )
-                  )}
-                </div>
-                <div class="row m-0">
-                  {data.vegetables.map((dairy) =>
-                    dairy.id >= 8 ? (
-                      <div class="col-md-1 text-center">
-                        <a>
-                          <img
-                            width="100%"
-                            class="img-responsive"
-                            src={dairy.image}
-                          />
-                          <h4>{dairy.title}</h4>
-                        </a>
-                      </div>
-                    ) : (
-                      ""
-                    )
-                  )}
-                </div>
-              </div>
-            </li>
-
-            <li class="images-drop-down">
-              <a href="#">
-                {" "}
-                EGGS
-                <ArrowDropDownIcon className="menu_icn" />
-              </a>
-              <div class="Images">
-                <div class="row m-0">
-                  {data.eggs.map((dairy) => (
-                    <div class="col-md-1 text-center">
-                      <a>
-                        <img
-                          width="100%"
-                          class="img-responsive"
-                          src={dairy.image}
-                        />
-                        <h4>{dairy.title}</h4>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </li>
-
-            <li class="images-drop-down">
-              <a href="#">
-                {" "}
-                RICES & PULSES
-                <ArrowDropDownIcon className="menu_icn" />
-              </a>
-              <div class="Images">
-                <div class="row m-0">
-                  {data.rice.map((dairy) => (
-                    <div class="col-md-1 text-center">
-                      <a>
-                        <img
-                          width="100%"
-                          class="img-responsive"
-                          src={dairy.image}
-                        />
-                        <h4>{dairy.title}</h4>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </li>
-            <li class="images-drop-down">
-              <a href="#">
-                {" "}
-                FERTILIZERS
-                <ArrowDropDownIcon className="menu_icn" />
-              </a>
-              <div class="Images">
-                <div class="row m-0">
-                  {data.fertilizers.map((dairy) => (
-                    <div class="col-md-1 text-center">
-                      <a>
-                        <img
-                          width="100%"
-                          class="img-responsive"
-                          src={dairy.image}
-                        />
-                        <h4>{dairy.title}</h4>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </li>
-            <li class="images-drop-down">
-              <a href="#">
-                {" "}
-                Services
-                <ArrowDropDownIcon className="menu_icn" />
-              </a>
-              <div class="Images">
-                <div class="row m-0">
-                  {data.services.map((dairy) => (
-                    <div class="col-md-1 text-center">
-                      <a>
-                        <img
-                          width="100%"
-                          class="img-responsive"
-                          src={dairy.image}
-                        />
-                        <h4>{dairy.title}</h4>
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </li>
-            <li class="images-drop-down">
-              <a href="#" className="calls">
-                Calls
-              </a>
-            </li>
-            <a
-              href="#"
-              class="toggle-menu visible-xs-block"
-              onClick={togglemenu}
-            >
-              |||
-            </a>
-          </ul>
-        </div>
-      </div>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <div className="modal_close">
-              <IconButton className="close_icn" onClick={handleClose}>
-                <CloseIcon />
-              </IconButton>
-            </div>
-            <div class="login">
-              <div class="user signinBx">
-                <div class="imgBx">
-                  <img src="images/login.png" alt="" />
-                </div>
-                <div class="formBx">
-                  {/* <form action=""> */}
-                  <div className="">
-                    {userInfo ? (
-                      <div>
-                        <Typography variant="h5">Verify OTP</Typography>
-                        <TextField
-                          margin="normal"
-                          required
-                          fullWidth
-                          value={otp}
-                          onChange={(event) => setOtp(event.target.value)}
-                        />
-                        <Button
-                          type="submit"
-                          fullWidth
-                          variant="contained"
-                          color="primary"
-                          className={classes.submit}
-                          onClick={verifyotp}
-                        >
-                          Verify OTP
-                        </Button>
-                      </div>
-                    ) : (
-                      <div>
-                        <Typography variant="h5">Sign in</Typography>
-                        <TextField
-                          margin="normal"
-                          required
-                          fullWidth
-                          label="Enter Email or Phone Number"
-                          autoFocus
-                          value={username}
-                          onChange={(event) => setUsername(event.target.value)}
-                        />
-                        <Button
-                          type="submit"
-                          fullWidth
-                          variant="contained"
-                          color="primary"
-                          className={classes.submit}
-                          onClick={onlogin}
-                        >
-                          Sign In With OTP
-                        </Button>
-                      </div>
-                    )}
-
-                    {error && (
-                      <div>
-                        <Alert className="mt-3" severity="error">
-                          Please Enter Valid Email or Phone No.
-                        </Alert>
-                      </div>
-                    )}
-                    <p class="signup">
-                      Don't have an account ?
-                      <a href="javascript:void(0)" onClick={toggleForm}>
-                        Sign Up.
-                      </a>
-                    </p>
                   </div>
-                  {/* </form> */}
-                </div>
-              </div>
-              <div class="user signupBx">
-                <div class="formBx">
-                  <form action="" onsubmit="return false;">
-                    <h2>Create an account</h2>
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      label="Email Address"
-                      name="email"
-                      autoComplete="email"
-                    />
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      label="Confirm Email Address"
-                      name="confirm_email"
-                      autoComplete="confirm_email"
-                    />
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      type="password"
-                    />
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="confirm_password"
-                      label="Confirm Password"
-                      type="password"
-                    />
+                </li>
 
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                      className={classes.submit}
-                    >
-                      Sign Up
-                    </Button>
-                    <p class="signup">
-                      Already have an account ?
-                      <a href="javascript:void(0)" onClick={toggleForm}>
-                        Sign in.
-                      </a>
-                    </p>
-                  </form>
-                </div>
-                <div class="imgBx">
-                  <img src="images/sign-up.png" alt="" />
-                </div>
-              </div>
+                <li class="images-drop-down">
+                  <a href="#">
+                    {" "}
+                    Vegetables
+                    <ArrowDropDownIcon className="menu_icn" />
+                  </a>
+                  <div class="Images">
+                    <div class="row m-0">
+                      {data.vegetables.map((dairy) =>
+                        dairy.id < 8 ? (
+                          <div class="col-md-1 text-center">
+                            <a>
+                              <img
+                                width="100%"
+                                class="img-responsive"
+                                src={dairy.image}
+                              />
+                              <h4>{dairy.title}</h4>
+                            </a>
+                          </div>
+                        ) : (
+                          ""
+                        )
+                      )}
+                    </div>
+                    <div class="row m-0">
+                      {data.vegetables.map((dairy) =>
+                        dairy.id >= 8 ? (
+                          <div class="col-md-1 text-center">
+                            <a>
+                              <img
+                                width="100%"
+                                class="img-responsive"
+                                src={dairy.image}
+                              />
+                              <h4>{dairy.title}</h4>
+                            </a>
+                          </div>
+                        ) : (
+                          ""
+                        )
+                      )}
+                    </div>
+                  </div>
+                </li>
+
+                <li class="images-drop-down">
+                  <a href="#">
+                    {" "}
+                    EGGS
+                    <ArrowDropDownIcon className="menu_icn" />
+                  </a>
+                  <div class="Images">
+                    <div class="row m-0">
+                      {data.eggs.map((dairy) => (
+                        <div class="col-md-1 text-center">
+                          <a>
+                            <img
+                              width="100%"
+                              class="img-responsive"
+                              src={dairy.image}
+                            />
+                            <h4>{dairy.title}</h4>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+
+                <li class="images-drop-down">
+                  <a href="#">
+                    {" "}
+                    RICES & PULSES
+                    <ArrowDropDownIcon className="menu_icn" />
+                  </a>
+                  <div class="Images">
+                    <div class="row m-0">
+                      {data.rice.map((dairy) => (
+                        <div class="col-md-1 text-center">
+                          <a>
+                            <img
+                              width="100%"
+                              class="img-responsive"
+                              src={dairy.image}
+                            />
+                            <h4>{dairy.title}</h4>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+                <li class="images-drop-down">
+                  <a href="#">
+                    {" "}
+                    FERTILIZERS
+                    <ArrowDropDownIcon className="menu_icn" />
+                  </a>
+                  <div class="Images">
+                    <div class="row m-0">
+                      {data.fertilizers.map((dairy) => (
+                        <div class="col-md-1 text-center">
+                          <a>
+                            <img
+                              width="100%"
+                              class="img-responsive"
+                              src={dairy.image}
+                            />
+                            <h4>{dairy.title}</h4>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+                <li class="images-drop-down">
+                  <a href="#">
+                    {" "}
+                    Services
+                    <ArrowDropDownIcon className="menu_icn" />
+                  </a>
+                  <div class="Images">
+                    <div class="row m-0">
+                      {data.services.map((dairy) => (
+                        <div class="col-md-1 text-center">
+                          <a>
+                            <img
+                              width="100%"
+                              class="img-responsive"
+                              src={dairy.image}
+                            />
+                            <h4>{dairy.title}</h4>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+                <li class="images-drop-down">
+                  <a href="#" className="calls">
+                    Calls
+                  </a>
+                </li>
+                <a
+                  href="#"
+                  class="toggle-menu visible-xs-block"
+                  onClick={togglemenu}
+                >
+                  |||
+                </a>
+              </ul>
             </div>
           </div>
-        </Fade>
-      </Modal>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paper}>
+                <div className="modal_close">
+                  <IconButton className="close_icn" onClick={handleClose}>
+                    <CloseIcon />
+                  </IconButton>
+                </div>
+                <div class="login">
+                  <div class="user signinBx">
+                    <div class="imgBx">
+                      <img src="images/login.png" alt="" />
+                    </div>
+                    <div class="formBx">
+                      {/* <form className="form" onSubmit={onlogin}> */}
+                      <div className="">
+                        {userInfo ? (
+                          <div>
+                            <Typography variant="h5">Verify OTP</Typography>
+                            <TextField
+                              margin="normal"
+                              required
+                              fullWidth
+                              value={otp}
+                              onChange={(event) => setOtp(event.target.value)}
+                            />
+                            <Button
+                              type="submit"
+                              fullWidth
+                              variant="contained"
+                              color="primary"
+                              className={classes.submit}
+                              onClick={verifyotp}
+                            >
+                              Verify OTP
+                            </Button>
+                          </div>
+                        ) : (
+                          <div>
+                            <Typography variant="h5">Sign in</Typography>
+                            <TextField
+                              margin="normal"
+                              required
+                              fullWidth
+                              label="Enter Email or Phone Number"
+                              autoFocus
+                              value={username}
+                              onChange={(event) =>
+                                setUsername(event.target.value)
+                              }
+                            />
+                            <Button
+                              type="submit"
+                              fullWidth
+                              variant="contained"
+                              color="primary"
+                              className={classes.submit}
+                              onClick={onlogin}
+                            >
+                              Sign In With OTP
+                            </Button>
+                          </div>
+                        )}
+
+                        {error && (
+                          <div>
+                            <Alert className="mt-3" severity="error">
+                              Please Enter Valid Email or Phone No.
+                            </Alert>
+                          </div>
+                        )}
+                        <p class="signup">
+                          Don't have an account ?
+                          <a href="javascript:void(0)" onClick={toggleForm}>
+                            Sign Up.
+                          </a>
+                        </p>
+                      </div>
+                      {/* </form> */}
+                    </div>
+                  </div>
+                  <div class="user signupBx">
+                    <div class="formBx">
+                      <form action="" onsubmit="return false;">
+                        <h2>Create an account</h2>
+                        <TextField
+                          margin="normal"
+                          required
+                          fullWidth
+                          label="Email Address"
+                          name="email"
+                          autoComplete="email"
+                        />
+                        <TextField
+                          margin="normal"
+                          required
+                          fullWidth
+                          label="Confirm Email Address"
+                          name="confirm_email"
+                          autoComplete="confirm_email"
+                        />
+                        <TextField
+                          margin="normal"
+                          required
+                          fullWidth
+                          name="password"
+                          label="Password"
+                          type="password"
+                        />
+                        <TextField
+                          margin="normal"
+                          required
+                          fullWidth
+                          name="confirm_password"
+                          label="Confirm Password"
+                          type="password"
+                        />
+
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="contained"
+                          color="primary"
+                          className={classes.submit}
+                        >
+                          Sign Up
+                        </Button>
+                        <p class="signup">
+                          Already have an account ?
+                          <a href="javascript:void(0)" onClick={toggleForm}>
+                            Sign in.
+                          </a>
+                        </p>
+                      </form>
+                    </div>
+                    <div class="imgBx">
+                      <img src="images/sign-up.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Fade>
+          </Modal>
+        </div>
+      )}
     </div>
   );
 }

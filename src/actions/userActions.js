@@ -13,7 +13,7 @@ const signin = (username) => async (dispatch) => {
     const {
       data,
     } = await Axios.post(
-      "https://devoc.poorvika.com/oc2/poorvika_live/index.php?route=feed/rest_api/signin",
+      "https://demo3.gyso.in/index.php?route=feed/rest_api/signin",
       { userdata: username }
     );
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
