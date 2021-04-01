@@ -82,6 +82,8 @@ export default function Header() {
 
   const verifyotp = () => {
     if (userInfo.data.OTP === otp) {
+      console.log(userInfo.data.OTP);
+      Setname(userInfo.data.OTP);
       setOpen(false);
     }
   };
