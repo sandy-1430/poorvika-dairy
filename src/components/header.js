@@ -20,9 +20,10 @@ import LoadingBox from "./LoadingBox";
 import Alert from "@material-ui/lab/Alert";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { useSelector, useDispatch } from "react-redux";
-import { signin, logout } from "../actions/userActions";
+import { signin, logout, otpverify } from "../actions/userActions";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import Axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -58,18 +59,21 @@ const StyledMenu = withStyles({})((props) => (
 export default function Header() {
   const classes = useStyles();
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [name, Setname] = useState("");
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const userSignin = useSelector((state) => state.userSignin);
   const { loading, userInfo, error } = userSignin;
+  const userData = useSelector((state) => state.userData);
+  const { userdata } = userData;
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (userInfo) {
       console.log("login success");
-      // setOpen(false);
+      setOpen(false);
     }
     return () => {
       //
@@ -77,21 +81,29 @@ export default function Header() {
   }, [userInfo]);
 
   const onlogin = () => {
-    dispatch(signin(username));
+    dispatch(signin(username, password));
   };
 
   const verifyotp = () => {
-    if (userInfo.data.OTP === otp) {
-      console.log(userInfo.data.OTP);
-      Setname(userInfo.data.OTP);
-      setOpen(false);
-    }
+    Axios.put("https://demo3.gyso.in/index.php?route=feed/rest_api/signin", {
+      userdata: "8124667482",
+      otp: otp,
+    }).then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    // dispatch(otpverify(username, otp));
   };
 
   const onlogout = () => {
     Setname("");
     setUsername("");
     setOtp("");
+    setPassword("");
     dispatch(logout());
   };
 
@@ -122,6 +134,7 @@ export default function Header() {
 
   return (
     <div className="header">
+      {userdata && console.log(userdata)}
       {loading && loading ? (
         <div>
           <LoadingBox />
@@ -160,11 +173,15 @@ export default function Header() {
                   ),
                 }}
               />
-              {name ? (
+              {userInfo ? (
                 <div className="d-flex align-items-center">
                   <Button className="ml-3" onClick={profileClick}>
                     <AccountCircleIcon className="mr-1" />
-                    <b>Hello {userInfo.data.OTP}</b>
+                    <b>
+                      {userInfo.data.firstname}
+                      {""}
+                      {userInfo.data.lastname}
+                    </b>
                   </Button>
                   <StyledMenu
                     anchorEl={anchorEl}
@@ -180,8 +197,10 @@ export default function Header() {
                 </Button>
               )}
               <div className="d-flex flex-wrap flex-column align-items-center ml-lg-4">
-                <ShoppingCartIcon />
-                My Cart
+                <a href="/cart">
+                  <ShoppingCartIcon />
+                  My Cart
+                </a>
               </div>
             </div>
           </div>
@@ -401,9 +420,7 @@ export default function Header() {
                     <div class="formBx">
                       {/* <form className="form" onSubmit={onlogin}> */}
                       <div className="">
-                        {userInfo ? (
-                          <div>
-                            <Typography variant="h5">Verify OTP</Typography>
+                        {/* <Typography variant="h5">Verify OTP</Typography>
                             <TextField
                               margin="normal"
                               required
@@ -421,33 +438,44 @@ export default function Header() {
                             >
                               Verify OTP
                             </Button>
-                          </div>
-                        ) : (
-                          <div>
-                            <Typography variant="h5">Sign in</Typography>
-                            <TextField
-                              margin="normal"
-                              required
-                              fullWidth
-                              label="Enter Email or Phone Number"
-                              autoFocus
-                              value={username}
-                              onChange={(event) =>
-                                setUsername(event.target.value)
-                              }
-                            />
-                            <Button
-                              type="submit"
-                              fullWidth
-                              variant="contained"
-                              color="primary"
-                              className={classes.submit}
-                              onClick={onlogin}
-                            >
-                              Sign In With OTP
-                            </Button>
-                          </div>
-                        )}
+                          </div> */}
+                        <div>
+                          <Typography variant="h5">Sign in</Typography>
+                          <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            label="Enter Email or Phone Number"
+                            autoFocus
+                            value={username}
+                            onChange={(event) =>
+                              setUsername(event.target.value)
+                            }
+                          />
+                          <TextField
+                            margin="normal"
+                            id="standard-password-input"
+                            label="Enter Password"
+                            type="password"
+                            fullWidth
+                            required
+                            autoComplete="current-password"
+                            value={password}
+                            onChange={(event) =>
+                              setPassword(event.target.value)
+                            }
+                          />
+                          <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={onlogin}
+                          >
+                            Sign In
+                          </Button>
+                        </div>
 
                         {error && (
                           <div>

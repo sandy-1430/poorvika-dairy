@@ -1,25 +1,14 @@
-import { CART_ADD_ITEM } from "../constants/cartConstants";
+import { ADD_TO_CART } from "../constants/cartConstants";
 import Cookie from "js-cookie";
-import Axios from "axios";
+import axios from "axios";
 
-const addToCart = (productId) => async (dispatch, getState) => {
+const addToCart = (productId) => async (dispatch) => {
   try {
-    const { data } = await Axios.get(
+    const { data } = await axios.get(
       "https://fakestoreapi.com/products/" + productId
     );
-    dispatch({
-      type: CART_ADD_ITEM,
-      payload: {
-        product: data.id,
-        title: data.title,
-        image: data.image,
-        price: data.price,
-      },
-    });
-    const {
-      cart: { cartItems },
-    } = getState();
-    Cookie.set("cartItems", JSON.stringify(cartItems));
+    dispatch({ type: ADD_TO_CART, payload: data });
+    Cookie.set("cartitems", JSON.stringify(data));
   } catch (error) {}
 };
 

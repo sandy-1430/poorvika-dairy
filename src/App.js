@@ -7,6 +7,7 @@ import Footer from "./components/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Productlist from "./screens/productlist";
 import Productdetails from "./screens/Productdetails";
+import Cartscreen from "./screens/Cartscreen";
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>;
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Header />
         <Switch>
           <Route path="/product/:id" component={Productdetails}></Route>
+          <Route path="/cart" component={Cartscreen}></Route>
           <Route path="/product" component={Productlist}></Route>
           <Route exact path="/">
             <Home></Home>

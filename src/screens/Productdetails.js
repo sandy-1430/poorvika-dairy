@@ -5,21 +5,21 @@ import { detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import formatCurrency from "../currency";
 import { addToCart } from "../actions/cartActions";
+import { useHistory } from "react-router-dom";
 
 const Productdetails = ({ match }) => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { product, loading, error } = productDetails;
-
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  let history = useHistory();
 
   useEffect(() => {
     dispatch(detailsProduct(match.params.id));
   }, [detailsProduct]);
 
-  const addtocart = () => {
-    dispatch(addToCart(match.params.id));
+  const addtocart = (product) => {
+    console.log(product);
+    dispatch(addToCart(product));
   };
   return (
     <div>
@@ -44,7 +44,7 @@ const Productdetails = ({ match }) => {
               <br></br>
               <button
                 type="button"
-                onClick={addtocart}
+                onClick={() => addtocart(product.id)}
                 className="btn btn-warning mr-3 my-3"
               >
                 Add To Cart
