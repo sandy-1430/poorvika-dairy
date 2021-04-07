@@ -1,29 +1,32 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import {
+  TextField,
+  IconButton,
+  InputAdornment,
+  Button,
+  Modal,
+  Backdrop,
+  Fade,
+  Menu,
+  MenuItem,
+  makeStyles,
+  withStyles,
+} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import $ from "jquery";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import data from "../data.json";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
 import CloseIcon from "@material-ui/icons/Close";
 import LoadingBox from "./LoadingBox";
-import Alert from "@material-ui/lab/Alert";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { useSelector, useDispatch } from "react-redux";
-import { signin, logout, otpverify } from "../actions/userActions";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import { logout } from "../actions/userActions";
 import Axios from "axios";
+import Signup from "./Signup";
+import Signin from "./Signin";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -34,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
   },
 }));
 
@@ -60,12 +60,11 @@ export default function Header() {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [otp, setOtp] = useState("");
-  const [name, Setname] = useState("");
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const userSignin = useSelector((state) => state.userSignin);
-  const { loading, userInfo, error } = userSignin;
+  const { loading, userInfo } = userSignin;
+
   const userData = useSelector((state) => state.userData);
   const { userdata } = userData;
   const dispatch = useDispatch();
@@ -80,40 +79,14 @@ export default function Header() {
     };
   }, [userInfo]);
 
-  const onlogin = () => {
-    dispatch(signin(username, password));
-  };
-
-  const verifyotp = () => {
-    Axios.put("https://demo3.gyso.in/index.php?route=feed/rest_api/signin", {
-      userdata: "8124667482",
-      otp: otp,
-    }).then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    // dispatch(otpverify(username, otp));
-  };
-
   const onlogout = () => {
-    Setname("");
     setUsername("");
-    setOtp("");
     setPassword("");
     dispatch(logout());
   };
 
   const togglemenu = () => {
     $(".exo-menu").toggleClass("display");
-  };
-
-  const toggleForm = () => {
-    const login = document.querySelector(".login");
-    login.classList.toggle("active");
   };
 
   const handleOpen = () => {
@@ -413,145 +386,8 @@ export default function Header() {
                   </IconButton>
                 </div>
                 <div class="login">
-                  <div class="user signinBx">
-                    <div class="imgBx">
-                      <img src="images/login.png" alt="" />
-                    </div>
-                    <div class="formBx">
-                      {/* <form className="form" onSubmit={onlogin}> */}
-                      <div className="">
-                        {/* <Typography variant="h5">Verify OTP</Typography>
-                            <TextField
-                              margin="normal"
-                              required
-                              fullWidth
-                              value={otp}
-                              onChange={(event) => setOtp(event.target.value)}
-                            />
-                            <Button
-                              type="submit"
-                              fullWidth
-                              variant="contained"
-                              color="primary"
-                              className={classes.submit}
-                              onClick={verifyotp}
-                            >
-                              Verify OTP
-                            </Button>
-                          </div> */}
-                        <div>
-                          <Typography variant="h5">Sign in</Typography>
-                          <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            label="Enter Email or Phone Number"
-                            autoFocus
-                            value={username}
-                            onChange={(event) =>
-                              setUsername(event.target.value)
-                            }
-                          />
-                          <TextField
-                            margin="normal"
-                            id="standard-password-input"
-                            label="Enter Password"
-                            type="password"
-                            fullWidth
-                            required
-                            autoComplete="current-password"
-                            value={password}
-                            onChange={(event) =>
-                              setPassword(event.target.value)
-                            }
-                          />
-                          <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                            onClick={onlogin}
-                          >
-                            Sign In
-                          </Button>
-                        </div>
-
-                        {error && (
-                          <div>
-                            <Alert className="mt-3" severity="error">
-                              Please Enter Valid Email or Phone No.
-                            </Alert>
-                          </div>
-                        )}
-                        <p class="signup">
-                          Don't have an account ?
-                          <a href="javascript:void(0)" onClick={toggleForm}>
-                            Sign Up.
-                          </a>
-                        </p>
-                      </div>
-                      {/* </form> */}
-                    </div>
-                  </div>
-                  <div class="user signupBx">
-                    <div class="formBx">
-                      <form action="" onsubmit="return false;">
-                        <h2>Create an account</h2>
-                        <TextField
-                          margin="normal"
-                          required
-                          fullWidth
-                          label="Email Address"
-                          name="email"
-                          autoComplete="email"
-                        />
-                        <TextField
-                          margin="normal"
-                          required
-                          fullWidth
-                          label="Confirm Email Address"
-                          name="confirm_email"
-                          autoComplete="confirm_email"
-                        />
-                        <TextField
-                          margin="normal"
-                          required
-                          fullWidth
-                          name="password"
-                          label="Password"
-                          type="password"
-                        />
-                        <TextField
-                          margin="normal"
-                          required
-                          fullWidth
-                          name="confirm_password"
-                          label="Confirm Password"
-                          type="password"
-                        />
-
-                        <Button
-                          type="submit"
-                          fullWidth
-                          variant="contained"
-                          color="primary"
-                          className={classes.submit}
-                        >
-                          Sign Up
-                        </Button>
-                        <p class="signup">
-                          Already have an account ?
-                          <a href="javascript:void(0)" onClick={toggleForm}>
-                            Sign in.
-                          </a>
-                        </p>
-                      </form>
-                    </div>
-                    <div class="imgBx">
-                      <img src="images/sign-up.png" alt="" />
-                    </div>
-                  </div>
+                  <Signin />
+                  <Signup />
                 </div>
               </div>
             </Fade>

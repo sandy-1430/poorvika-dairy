@@ -1,4 +1,7 @@
 import {
+  USER_REGISTER_REQUEST,
+  USER_REGISTER_SUCCESS,
+  USER_REGISTER_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
   USER_SIGNIN_FAIL,
@@ -7,6 +10,19 @@ import {
   USER_OTP_SUCCESS,
   USER_OTP_FAIL,
 } from "../constants/userConstants";
+
+function userSignupReducer(state = {}, action) {
+  switch (action.type) {
+    case USER_REGISTER_REQUEST:
+      return { loading: true };
+    case USER_REGISTER_SUCCESS:
+      return { loading: false, registerinfo: action.payload };
+    case USER_REGISTER_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+}
 
 function userSigninReducer(state = {}, action) {
   switch (action.type) {
@@ -22,6 +38,7 @@ function userSigninReducer(state = {}, action) {
       return state;
   }
 }
+
 function otpVerifyReducer(state = {}, action) {
   switch (action.type) {
     case USER_OTP_REQUEST:
@@ -37,4 +54,4 @@ function otpVerifyReducer(state = {}, action) {
   }
 }
 
-export { userSigninReducer, otpVerifyReducer };
+export { userSigninReducer, otpVerifyReducer, userSignupReducer };

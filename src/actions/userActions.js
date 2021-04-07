@@ -1,6 +1,9 @@
 import Axios from "axios";
 import Cookie from "js-cookie";
 import {
+  USER_REGISTER_REQUEST,
+  USER_REGISTER_SUCCESS,
+  USER_REGISTER_FAIL,
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
   USER_SIGNIN_FAIL,
@@ -9,6 +12,25 @@ import {
   USER_OTP_FAIL,
   USER_LOGOUT,
 } from "../constants/userConstants";
+
+const register = (phone, name, email, pass) => async (dispatch) => {
+  dispatch({ type: USER_REGISTER_REQUEST, payload: {} });
+  try {
+    const { data } = await Axios.put(
+      "https://demo3.gyso.in/index.php?route=feed/rest_api/signup",
+      {
+        mobileno: phone,
+        username: name,
+        email: email,
+        password: pass,
+      }
+    );
+    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+    Cookie.set("registerinfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({ type: USER_REGISTER_FAIL, payload: error.message });
+  }
+};
 
 const signin = (username, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { username } });
@@ -49,4 +71,4 @@ const logout = () => (dispatch) => {
   dispatch({ type: USER_LOGOUT });
 };
 // const product =
-export { signin, logout, otpverify };
+export { register, signin, logout, otpverify };

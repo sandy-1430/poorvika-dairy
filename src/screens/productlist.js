@@ -5,6 +5,7 @@ import { productList, detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import formatCurrency from "../currency";
 import { useHistory } from "react-router-dom";
+import { addToCart } from "../actions/cartActions";
 
 export default function Productlist() {
   const dispatch = useDispatch();
@@ -19,6 +20,11 @@ export default function Productlist() {
   const productdetail = (product_id) => {
     dispatch(detailsProduct(product_id));
     history.push("/product/" + product_id);
+  };
+
+  const addtocart = (product) => {
+    console.log(product);
+    dispatch(addToCart(product));
   };
 
   return (
@@ -41,9 +47,13 @@ export default function Productlist() {
                   <div className="card-body">
                     <h4 className="card-title">{product.category}</h4>
                     <p className="card-text">{formatCurrency(product.price)}</p>
-                    <a href="#" className="btn btn-primary">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => addtocart(product.id)}
+                    >
                       Add To Cart
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
