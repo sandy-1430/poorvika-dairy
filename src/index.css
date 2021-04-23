@@ -233,7 +233,7 @@ a.toggle-menu {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 30px;
   transition: 0.5s;
 }
 

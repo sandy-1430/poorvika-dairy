@@ -32,10 +32,10 @@ export default function Productlist() {
       {loading && <LoadingBox></LoadingBox>}
       {error && <div>{error}</div>}
       <div className="container cst_container">
-        <div className="row mx-0 my-4">
+        <div className="row mx-0 my-4" id="product_list">
           {products &&
             products.map((product) => (
-              <div className="col-md-3 mb-3">
+              <div className="col-md-3 mb-3 filter_list">
                 <div className="card baseBlock">
                   <div onClick={() => productdetail(product.id)}>
                     <img

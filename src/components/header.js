@@ -105,6 +105,12 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+  const filterproduct = () => {
+    var value = $("#search_fetch").val().toLowerCase();
+    $("#product_list .filter_list").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  };
   return (
     <div className="header">
       {userdata && console.log(userdata)}
@@ -131,7 +137,7 @@ export default function Header() {
                 </li>
               </ul>
               <TextField
-                id="outlined-secondary"
+                id="search_fetch"
                 label="Search"
                 variant="outlined"
                 size="small"
@@ -139,7 +145,7 @@ export default function Header() {
                 InputProps={{
                   endAdornment: (
                     <InputAdornment>
-                      <IconButton className="icon-btn">
+                      <IconButton className="icon-btn" onClick={filterproduct}>
                         <SearchIcon />
                       </IconButton>
                     </InputAdornment>
