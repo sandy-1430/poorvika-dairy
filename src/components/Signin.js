@@ -68,7 +68,7 @@ export default function Signin() {
                   color="primary"
                   className={classes.submit}
                 >
-                  Sign In
+                  Sign in
                 </Button>
               </div>
 
