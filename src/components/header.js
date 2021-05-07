@@ -24,7 +24,7 @@ import LoadingBox from "./LoadingBox";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../actions/userActions";
-import Axios from "axios";
+import { Link } from "react-router-dom";
 import Signup from "./Signup";
 import Signin from "./Signin";
 
@@ -176,10 +176,10 @@ export default function Header() {
                 </Button>
               )}
               <div className="d-flex flex-wrap flex-column align-items-center ml-lg-4">
-                <a href="/cart">
+                <Link to="/cart">
                   <ShoppingCartIcon />
                   My Cart
-                </a>
+                </Link>
               </div>
             </div>
           </div>

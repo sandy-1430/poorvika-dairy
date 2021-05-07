@@ -32,7 +32,6 @@ export default function Productlist() {
     <div className="Productlist">
       {loading && <LoadingBox></LoadingBox>}
       {error && <div>{error}</div>}
-      <Link to="/cart">Cart</Link>
       <div className="container cst_container">
         <div className="row mx-0 my-4" id="product_list">
           {products &&
