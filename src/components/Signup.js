@@ -46,7 +46,7 @@ export default function Signup() {
     if (registerinfo) {
       // dispatch(signin(name, pass));
     }
-  }, [registerinfo]);
+  }, [dispatch]);
 
   const toggleForm = () => {
     const login = document.querySelector(".login");
@@ -81,6 +81,9 @@ export default function Signup() {
 
   const onregister = () => {
     dispatch(register(name, pass, phone, email));
+    if (registerinfo) {
+      // dispatch(signin(phone, pass));
+    }
   };
 
   const passwordkey = (prop) => (event) => {
@@ -95,69 +98,63 @@ export default function Signup() {
     <div>
       <div class="user signupBx">
         <div class="formBx">
-          <form action="#" style={{ width: "100%" }} onSubmit={onregister}>
-            <FormControl fullWidth>
-              <h2>Create an account</h2>
-              <TextField
-                label="Name"
+          {/* <form action="#" style={{ width: "100%" }} onSubmit={onregister}> */}
+          <FormControl fullWidth>
+            <h2>Create an account</h2>
+            <TextField
+              label="Name"
+              margin="normal"
+              fullWidth
+              color="primary"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value.replace(/[^A-Za-z]/, ""))}
+            />
+            <TextField
+              label="Phone No"
+              margin="normal"
+              fullWidth
+              color="primary"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/, ""))}
+              inputProps={{ maxLength: 10 }}
+            />
+            <TextField
+              label="Email"
+              type="email"
+              margin="normal"
+              fullWidth
+              required
+              color="primary"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <FormControl margin="normal">
+              <InputLabel htmlFor="standard-adornment-password">
+                Password
+              </InputLabel>
+              <Input
                 margin="normal"
-                fullWidth
-                color="primary"
-                required
-                value={name}
-                onChange={(e) =>
-                  setName(e.target.value.replace(/[^A-Za-z]/, ""))
+                id="standard-adornment-password"
+                type={values.showPassword ? "text" : "password"}
+                value={values.password}
+                onChange={passwordkey("password")}
+                onKeyUp={(e) => validate(e)}
+                inputProps={{ minLength: 8 }}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
                 }
               />
-              <TextField
-                label="Phone No"
-                margin="normal"
-                fullWidth
-                color="primary"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/, ""))}
-                inputProps={{ maxLength: 10 }}
-              />
-              <TextField
-                label="Email"
-                type="email"
-                margin="normal"
-                fullWidth
-                required
-                color="primary"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-              <FormControl margin="normal">
-                <InputLabel htmlFor="standard-adornment-password">
-                  Password
-                </InputLabel>
-                <Input
-                  margin="normal"
-                  id="standard-adornment-password"
-                  type={values.showPassword ? "text" : "password"}
-                  value={values.password}
-                  onChange={passwordkey("password")}
-                  onKeyUp={(e) => validate(e)}
-                  inputProps={{ minLength: 8 }}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                      >
-                        {values.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-              {/* <TextField
+            </FormControl>
+            {/* <TextField
                 label="Password"
                 type="password"
                 margin="normal"
@@ -166,44 +163,63 @@ export default function Signup() {
                 color="primary"
                 value={pass}
               /> */}
-              {passerror && (
-                <Alert
-                  className="d-flex align-items-center"
-                  style={{ fontSize: 11, padding: "0 5px" }}
-                  severity="error"
-                >
-                  {passerror}
-                </Alert>
-              )}
-              <TextField
-                label="Confirm Password"
-                type="password"
-                margin="normal"
-                fullWidth
-                required
-                color="primary"
-                onChange={(e) => confirmpassword(e)}
-                error={confirmpass}
-              />
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                disabled={disable}
+            {passerror && (
+              <Alert
+                className="d-flex align-items-center"
+                style={{ fontSize: 11, padding: "0 5px" }}
+                severity="error"
               >
-                Sign Up
-              </Button>
-              <p class="signup">
-                Already have an account ?
-                <a href="javascript:void(0)" onClick={toggleForm}>
-                  Sign in.
-                </a>
-              </p>
-            </FormControl>
-          </form>
+                {passerror}
+              </Alert>
+            )}
+            <TextField
+              label="Confirm Password"
+              type="password"
+              margin="normal"
+              fullWidth
+              required
+              color="primary"
+              onChange={(e) => confirmpassword(e)}
+              error={confirmpass}
+            />
+            {registerinfo && (
+              <Alert
+                className="d-flex align-items-center"
+                style={{ fontSize: 11, padding: "0 5px" }}
+                severity="success"
+              >
+                {registerinfo.data}
+              </Alert>
+            )}
+            {error && (
+              <Alert
+                className="d-flex align-items-center"
+                style={{ fontSize: 11, padding: "0 5px" }}
+                severity="error"
+              >
+                This User is already exit
+              </Alert>
+            )}
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              disabled={disable}
+              onClick={onregister}
+            >
+              Sign Up
+            </Button>
+            <p class="signup">
+              Already have an account ?
+              <a href="javascript:void(0)" onClick={toggleForm}>
+                Sign in.
+              </a>
+            </p>
+          </FormControl>
+          {/* </form> */}
         </div>
         <div class="imgBx">
           <img src="images/sign-up.png" alt="" />

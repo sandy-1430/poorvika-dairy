@@ -6,11 +6,11 @@ import {
   otpVerifyReducer,
   userSignupReducer,
 } from "./reducers/userReducers";
-import { cardItemsReducer } from "./reducers/cartReducers";
 import {
   productlistReducer,
   productDetailsReducer,
 } from "./reducers/productReducers";
+import { cardItemsReducer } from "./reducers/cartReducers";
 
 const userInfo = Cookie.getJSON("userInfo") || null;
 const userdata = Cookie.getJSON("userdata") || null;
@@ -28,8 +28,8 @@ const reducer = combineReducers({
   registerDetail: userSignupReducer,
   userData: otpVerifyReducer,
   productList: productlistReducer,
-  cart: cardItemsReducer,
   productDetails: productDetailsReducer,
+  cart: cardItemsReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

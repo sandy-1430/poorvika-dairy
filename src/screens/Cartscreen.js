@@ -2,11 +2,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../actions/cartActions";
-
+import DeleteIcon from "@material-ui/icons/Delete";
 export default function Cartscreen() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const { cartitems } = cart;
 
   useEffect(() => {
     dispatch(addToCart());
@@ -14,58 +14,56 @@ export default function Cartscreen() {
 
   return (
     <div>
-      {console.log(cartItems)}
-      <div>
-        <div className="cart-sign mt-5">
-          <div className="row mx-0">
-            <div className="col-lg-8">
-              <div class="card mb-3 mx-5">
-                <div class="card-header bg-transparent">
-                  <div className="row mx-0">
-                    <div className="col-md-12">
-                      <h4>Cart Items ({cartItems && cartItems.length})</h4>
-                    </div>
+      {console.log(cartitems)}
+      <div className="container cst_container py-5">
+        <div className="row">
+          <div className="col-lg-8">
+            <div class="card">
+              <div class="card-header">
+                <h5>My Cart ({cartitems && cartitems.length})</h5>
+              </div>
+              {cartitems &&
+                cartitems.map((cart) => (
+                  <div class="card-body p-0 cst_card bb">
+                    <ul className="d-flex align-items-center ">
+                      <li>
+                        <img src={cart.image}></img>
+                      </li>
+                      <li>
+                        <h5 class="card-title">{cart.title}</h5>
+                        <p class="card-text">{cart.category}</p>
+                      </li>
+                      <li>
+                        <button className="cst_btn_icn">+</button>
+                        <input type="number" min="1"></input>
+                        <button className="cst_btn_icn">-</button>
+                      </li>
+                      <li>{cart.price}</li>
+                      <li>
+                        <DeleteIcon />
+                      </li>
+                    </ul>
                   </div>
-                </div>
-                {cartItems &&
-                  cartItems.map((cart) => (
-                    <div class="shadow-lg p-3  bg-white rounded m-3">
-                      <div class="card-body">
-                        <div className="row align-items-center">
-                          <div className="col-md-3">
-                            <img
-                              src={cart.data.image}
-                              alt={cart.data.title}
-                              width="100%"
-                            />
-                          </div>
-                          <div className="col-md-6">
-                            <h4>{cart.data.title}</h4>
-                            <p className="green-price-txt text-success">
-                              {" "}
-                              {cart.data.price}
-                            </p>
-                          </div>
-                          <div className="col-md-3">
-                            <h2>
-                              <span className="dcrmt-sign">-</span>
-                              <span className="sqr-box">1</span>
-                              <span className="Icrmt-sign">+</span>
-                            </h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                <div class="card-footer">
-                  <div className="row mx-0">
-                    <div className="col-md-12 text-right">
-                      <button type="button" className="btn btn-warning ">
-                        Place Order
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                ))}
+              <div class="card-footer cst_cart_footer">
+                <a href="#" class="btn btn-primary">
+                  Go somewhere
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div class="card">
+              <div class="card-header">Featured</div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+              </div>
+              <div class="card-footer">
+                <a class="btn btn-primary">Go somewhere</a>
               </div>
             </div>
           </div>

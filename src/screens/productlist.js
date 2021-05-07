@@ -6,6 +6,7 @@ import LoadingBox from "../components/LoadingBox";
 import formatCurrency from "../currency";
 import { useHistory } from "react-router-dom";
 import { addToCart } from "../actions/cartActions";
+import { Link } from "react-router-dom";
 
 export default function Productlist() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export default function Productlist() {
     <div className="Productlist">
       {loading && <LoadingBox></LoadingBox>}
       {error && <div>{error}</div>}
+      <Link to="/cart">Cart</Link>
       <div className="container cst_container">
         <div className="row mx-0 my-4" id="product_list">
           {products &&
@@ -50,7 +52,7 @@ export default function Productlist() {
                     <button
                       type="button"
                       className="btn btn-primary"
-                      onClick={() => addtocart(product.id)}
+                      onClick={() => addtocart(product)}
                     >
                       Add To Cart
                     </button>

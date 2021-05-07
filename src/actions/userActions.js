@@ -13,11 +13,11 @@ import {
   USER_LOGOUT,
 } from "../constants/userConstants";
 
-const register = (phone, name, email, pass) => async (dispatch) => {
+const register = (name, pass, phone, email) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: {} });
   try {
-    const { data } = await Axios.put(
-      "https://demo3.gyso.in/index.php?route=feed/rest_api/signup",
+    const { data } = await Axios.post(
+      "https://demo3.gyso.in/index.php?route=feed/rest_api/signup1",
       {
         mobileno: phone,
         username: name,
