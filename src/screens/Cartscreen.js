@@ -1,8 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../actions/cartActions";
+import {
+  addToCart,
+  IncreaseQty,
+  DecreaseQty,
+  RemoveFromCart,
+} from "../actions/cartActions";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Button from "@material-ui/core/Button";
 import formatCurrency from "../currency";
 import { Link } from "react-router-dom";
 
@@ -11,13 +17,41 @@ export default function Cartscreen() {
   const cart = useSelector((state) => state.cart);
   const { cartitems } = cart;
 
+  const [total, setTotal] = useState(50);
+
   useEffect(() => {
     dispatch(addToCart());
   }, [dispatch]);
 
+  const Qtyinc = (id, qnty) => {
+    console.log(qnty, id);
+    const qty = qnty + 1;
+    const data = {
+      id,
+      qty,
+    };
+    dispatch(IncreaseQty(data));
+  };
+
+  const Qtydec = (id, qnty) => {
+    console.log(qnty, id);
+    const qty = qnty - 1;
+    const data = {
+      id,
+      qty,
+    };
+    dispatch(DecreaseQty(data));
+  };
+
+  const removeproduct = (id) => {
+    console.log(id);
+    dispatch(RemoveFromCart(id));
+  };
+
   return (
     <div>
       {console.log(cartitems)}
+      {console.log(total)}
 
       <div className="container cst_container py-5">
         {cartitems && cartitems.length !== 0 ? (
@@ -29,7 +63,12 @@ export default function Cartscreen() {
                 </div>
                 {cartitems &&
                   cartitems.map((cart) => (
-                    <div class="card-body p-0 cst_card bb">
+                    <div
+                      class="card-body p-0 cst_card bb"
+                      data-aos="fade-zoom-in"
+                      data-aos-delay="100"
+                      data-aos-anchor=".example-selector"
+                    >
                       <ul className="d-flex flex-wrap align-items-center ">
                         <li>
                           <img src={cart.image}></img>
@@ -39,13 +78,33 @@ export default function Cartscreen() {
                           <p class="card-text">{formatCurrency(cart.price)}</p>
                         </li>
                         <li>
-                          <button className="cst_btn_icn">+</button>
-                          <input type="text" min="1"></input>
-                          <button className="cst_btn_icn">-</button>
+                          <button
+                            type="button"
+                            className="cst_btn_icn"
+                            disabled={cart.qty === 1 ? true : false}
+                            onClick={() => Qtydec(cart.id, cart.qty)}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            min="1"
+                            value={cart.qty}
+                            readOnly
+                          />
+                          <button
+                            type="button"
+                            className="cst_btn_icn"
+                            onClick={() => Qtyinc(cart.id, cart.qty)}
+                          >
+                            +
+                          </button>
                         </li>
-                        <li>{formatCurrency(cart.price)}</li>
                         <li>
-                          <Link>
+                          <b>{formatCurrency(cart.qty * cart.price)}</b>
+                        </li>
+                        <li>
+                          <Link onClick={() => removeproduct(cart.id)}>
                             <DeleteIcon color="secondary" />
                           </Link>
                         </li>
@@ -53,9 +112,9 @@ export default function Cartscreen() {
                     </div>
                   ))}
                 <div class="card-footer cart_footer d-none d-sm-block">
-                  <a href="#" class="btn btn-primary">
+                  <Button variant="contained" color="primary">
                     Place Order
-                  </a>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -69,26 +128,35 @@ export default function Cartscreen() {
                     <li>
                       <h6>Price ({cartitems && cartitems.length} items)</h6>
                     </li>
-                    <li>₹21,393</li>
+                    <li>
+                      {formatCurrency(
+                        cartitems.reduce((a, c) => a + c.price * c.qty, 0)
+                      )}
+                    </li>
                   </ul>
                   <ul className="d-flex flex-wrap">
                     <li>
                       <h6>Discount</h6>
                     </li>
-                    <li> - ₹2,393</li>
+                    <li> Some Amt</li>
                   </ul>
                   <ul className="d-flex flex-wrap">
                     <li>
                       <h6>Delivery Charges</h6>
                     </li>
-                    <li>₹50</li>
+                    <li>{formatCurrency(total)}</li>
                   </ul>
                   <hr></hr>
                   <ul className="d-flex flex-wrap mb-0">
                     <li>
                       <h4 className="mb-0">Total Amount :</h4>
                     </li>
-                    <li>₹50</li>
+                    <li>
+                      {formatCurrency(
+                        cartitems.reduce((a, c) => a + c.price * c.qty, 0) +
+                          total
+                      )}
+                    </li>
                   </ul>
                 </div>
                 <div class="card-footer cart_footer d-block d-sm-none">

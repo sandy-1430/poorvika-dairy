@@ -25,7 +25,11 @@ export default function Productlist() {
 
   const addtocart = (product) => {
     console.log(product);
-    dispatch(addToCart(product));
+    const format = {
+      qty: 1,
+    };
+    const data = Object.assign(format, product);
+    dispatch(addToCart(data));
   };
 
   return (
