@@ -14,6 +14,9 @@ export default function Productlist() {
   const { products, loading, error } = Listproduct;
   let history = useHistory();
 
+  const cart = useSelector((state) => state.cart);
+  const { cartitems } = cart;
+
   useEffect(() => {
     dispatch(productList());
   }, [dispatch]);
@@ -29,7 +32,15 @@ export default function Productlist() {
       qty: 1,
     };
     const data = Object.assign(format, product);
-    dispatch(addToCart(data));
+    if (cartitems.length !== 0) {
+      if (cartitems.find((cart) => cart.id === product.id)) {
+        alert("this item is already in cart");
+      } else {
+        dispatch(addToCart(data));
+      }
+    } else {
+      dispatch(addToCart(data));
+    }
   };
 
   return (

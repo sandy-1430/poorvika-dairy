@@ -120,12 +120,14 @@ export default function Header() {
         </div>
       ) : (
         <div>
-          <div className="d-flex flex-wrap align-items-center justify-content-center top-header">
+          <div className="d-flex flex-wrap align-items-center top-header">
             <div className="cst_brand">
-              <img src="images/logo.png" className="header-logo" />
+              <Link to="/product">
+                <img src="images/logo.png" className="header-logo" />
+              </Link>
             </div>
-            <div className="cst_top_nav d-flex flex-wrap align-items-center">
-              <ul className="d-flex m-0 p-0">
+            <div className="cst_top_nav">
+              <ul className="d-flex flex-wrap align-items-center m-0 p-0">
                 <li>
                   <a>Our Story</a>
                 </li>
@@ -135,8 +137,62 @@ export default function Header() {
                 <li>
                   <a>Our Blog</a>
                 </li>
+                <li>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="search_fetch"
+                      placeholder="Search"
+                      class="form-control"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text p-0" id="basic-addon2">
+                        <IconButton
+                          className="icon-btn"
+                          onClick={filterproduct}
+                        >
+                          <SearchIcon />
+                        </IconButton>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  {userInfo ? (
+                    <div className="d-flex align-items-center">
+                      <Button className="ml-3" onClick={profileClick}>
+                        <AccountCircleIcon className="mr-1" />
+                        <b>
+                          {userInfo.data.firstname}
+                          {""}
+                          {userInfo.data.lastname}
+                        </b>
+                      </Button>
+                      <StyledMenu
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={profileClose}
+                      >
+                        <MenuItem onClick={onlogout}>Log Out</MenuItem>
+                      </StyledMenu>
+                    </div>
+                  ) : (
+                    <Button className="login-btn ml-lg-4" onClick={handleOpen}>
+                      Sign In / Register
+                    </Button>
+                  )}
+                </li>
+                <li>
+                  <div className="d-flex flex-wrap flex-column align-items-center ml-lg-4">
+                    <Link to="/cart">
+                      <ShoppingCartIcon />
+                      My Cart
+                    </Link>
+                  </div>
+                </li>
               </ul>
-              <TextField
+
+              {/* <TextField
                 id="search_fetch"
                 label="Search"
                 variant="outlined"
@@ -151,36 +207,7 @@ export default function Header() {
                     </InputAdornment>
                   ),
                 }}
-              />
-              {userInfo ? (
-                <div className="d-flex align-items-center">
-                  <Button className="ml-3" onClick={profileClick}>
-                    <AccountCircleIcon className="mr-1" />
-                    <b>
-                      {userInfo.data.firstname}
-                      {""}
-                      {userInfo.data.lastname}
-                    </b>
-                  </Button>
-                  <StyledMenu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={profileClose}
-                  >
-                    <MenuItem onClick={onlogout}>Log Out</MenuItem>
-                  </StyledMenu>
-                </div>
-              ) : (
-                <Button className="login-btn ml-lg-4" onClick={handleOpen}>
-                  Sign In / Register
-                </Button>
-              )}
-              <div className="d-flex flex-wrap flex-column align-items-center ml-lg-4">
-                <Link to="/cart">
-                  <ShoppingCartIcon />
-                  My Cart
-                </Link>
-              </div>
+              /> */}
             </div>
           </div>
           <div className="bottom-header">

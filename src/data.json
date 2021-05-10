@@ -3,160 +3,160 @@
         {
             "id": "1",
             "title": "MILK",
-            "image": "images/dairy-milk.png"
+            "image": "images/header/dairy/dairy-milk.png"
         },
         {
             "id": "2",
             "title": "GHEE",
-            "image": "images/dairy-ghee.png"
+            "image": "images/header/dairy/dairy-ghee.png"
         },
         {
             "id": "3",
             "title": "PANEER",
-            "image": "images/dairy-paneer.png"
+            "image": "images/header/dairy/dairy-paneer.png"
         },
         {
             "id": "4",
             "title": "BUTTER",
-            "image": "images/dairy-butter.png"
+            "image": "images/header/dairy/dairy-butter.png"
         },
         {
             "id": "5",
             "title": "BUTTERMILK",
-            "image": "images/dairy-buttermilk.png"
+            "image": "images/header/dairy/dairy-buttermilk.png"
         },
         {
             "id": "6",
             "title": "CURD",
-            "image": "images/dairy-curd.png"
+            "image": "images/header/dairy/dairy-curd.png"
         },
         {
             "id": "7",
             "title": "LASSI",
-            "image": "images/dairy-lassi.png"
+            "image": "images/header/dairy/dairy-lassi.png"
         },
         {
             "id": "8",
             "title": "ICECREAMS",
-            "image": "images/dairy-icecream.png"
+            "image": "images/header/dairy/dairy-icecream.png"
         }
     ],
     "vegetables": [
         {
             "id": "1",
-            "title": "MILK",
-            "image": "images/milk.png"
+            "title": "RIDGE GOOURD",
+            "image": "images/header/Vegetables/ridge-gourd.png"
         },
         {
             "id": "2",
-            "title": "GHEE",
-            "image": "images/milk.png"
+            "title": "BOTTLE GOOURD",
+            "image": "images/header/Vegetables/bottle-gourd.png"
         },
         {
             "id": "3",
-            "title": "PANEER",
-            "image": "images/milk.png"
+            "title": "BITTER GOOURD",
+            "image": "images/header/Vegetables/bitter-gourd.png"
         },
         {
             "id": "4",
-            "title": "BUTTER",
-            "image": "images/milk.png"
+            "title": "BRINJAL",
+            "image": "images/header/Vegetables/brinjal.png"
         },
         {
             "id": "5",
-            "title": "BUTTERMILK",
-            "image": "images/milk.png"
+            "title": "LADIES FINGER",
+            "image": "images/header/Vegetables/ladies-finger.png"
         },
         {
             "id": "6",
-            "title": "CURD",
-            "image": "images/milk.png"
+            "title": "TOMATO",
+            "image": "images/header/Vegetables/tomato.png"
         },
         {
             "id": "7",
-            "title": "LASSI",
-            "image": "images/milk.png"
+            "title": "VIEW ALL",
+            "image": "images/header/Vegetables/view-all.png"
         },
         {
             "id": "8",
-            "title": "ICECREAMS",
-            "image": "images/milk.png"
+            "title": "SIRRU KEERAI",
+            "image": "images/header/Vegetables/sirru-keerai.png"
         },
         {
             "id": "9",
-            "title": "BUTTER",
-            "image": "images/milk.png"
+            "title": "MULAI KEERAI",
+            "image": "images/header/Vegetables/mulai-keerai.png"
         },
         {
             "id": "10",
-            "title": "BUTTERMILK",
-            "image": "images/milk.png"
+            "title": "PUDINA",
+            "image": "images/header/Vegetables/pudina.png"
         },
         {
             "id": "11",
-            "title": "CURD",
-            "image": "images/milk.png"
+            "title": "ARAI KEERAI",
+            "image": "images/header/Vegetables/arai-keerai.png"
         },
         {
             "id": "12",
-            "title": "LASSI",
-            "image": "images/milk.png"
+            "title": "CORIANDER LEAF",
+            "image": "images/header/Vegetables/coriander-leaf.png"
         },
         {
             "id": "13",
-            "title": "ICECREAMS",
-            "image": "images/milk.png"
+            "title": "PONNANGANI LEAF",
+            "image": "images/header/Vegetables/ponnangani-leaf.png"
         }
     ],
     "eggs": [
         {
             "id": "1",
-            "title": "MILK",
-            "image": "images/milk.png"
+            "title": "COUNTRY EGG",
+            "image": "images/header/Egg/country-egg.png"
         },
         {
             "id": "2",
-            "title": "GHEE",
-            "image": "images/milk.png"
+            "title": "KADAI EGG",
+            "image": "images/header/Egg/kadai-egg.png"
         },
         {
             "id": "3",
-            "title": "PANEER",
-            "image": "images/milk.png"
+            "title": "VIEW ALL",
+            "image": "images/header/Egg/view-all.png"
         }
     ],
     "rice": [
         {
             "id": "1",
-            "title": "MILK",
-            "image": "images/milk.png"
+            "title": "ARHAR DHAL",
+            "image": "images/header/Rices-Pulses/arhar-dhal.png"
         },
         {
             "id": "2",
-            "title": "GHEE",
-            "image": "images/milk.png"
+            "title": "SEERAGA SAMBA",
+            "image": "images/header/Rices-Pulses/seeraga-samba.png"
         },
         {
             "id": "3",
-            "title": "PANEER",
-            "image": "images/milk.png"
+            "title": "PANVIEW ALLEER",
+            "image": "images/header/Rices-Pulses/view-all.png"
         }
     ],
     "fertilizers": [
         {
             "id": "1",
-            "title": "MILK",
-            "image": "images/milk.png"
+            "title": "ORGANIC MANURE",
+            "image": "images/header/Fertilisers/organic-manure.png"
         },
         {
             "id": "2",
-            "title": "GHEE",
-            "image": "images/milk.png"
+            "title": "GOMUTRA",
+            "image": "images/header/Fertilisers/goumutra.png"
         },
         {
             "id": "3",
-            "title": "PANEER",
-            "image": "images/milk.png"
+            "title": "COWDUNG CAKE",
+            "image": "images/header/Fertilisers/cowdung-cake.png"
         }
     ],
     "services": [
