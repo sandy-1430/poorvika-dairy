@@ -9,6 +9,9 @@ import {
   USER_OTP_REQUEST,
   USER_OTP_SUCCESS,
   USER_OTP_FAIL,
+  VERIFY_OTP_REQUEST,
+  VERIFY_OTP_SUCCESS,
+  VERIFY_OTP_FAIL,
 } from "../constants/userConstants";
 
 function userSignupReducer(state = {}, action) {
@@ -39,13 +42,28 @@ function userSigninReducer(state = {}, action) {
   }
 }
 
-function otpVerifyReducer(state = {}, action) {
+function otpRequestReducer(state = {}, action) {
   switch (action.type) {
     case USER_OTP_REQUEST:
       return { loading: true };
     case USER_OTP_SUCCESS:
-      return { loading: false, userdata: action.payload };
+      return { loading: false, otp: action.payload };
     case USER_OTP_FAIL:
+      return { loading: false, requesterror: action.payload };
+    case USER_LOGOUT:
+      return {};
+    default:
+      return state;
+  }
+}
+
+function otpVerifyReducer(state = {}, action) {
+  switch (action.type) {
+    case VERIFY_OTP_REQUEST:
+      return { loading: true };
+    case VERIFY_OTP_SUCCESS:
+      return { loading: false, userdata: action.payload };
+    case VERIFY_OTP_FAIL:
       return { loading: false, error: action.payload };
     case USER_LOGOUT:
       return {};
@@ -54,4 +72,9 @@ function otpVerifyReducer(state = {}, action) {
   }
 }
 
-export { userSigninReducer, otpVerifyReducer, userSignupReducer };
+export {
+  userSigninReducer,
+  otpRequestReducer,
+  userSignupReducer,
+  otpVerifyReducer,
+};

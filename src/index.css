@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 body {
   margin: 0;
   padding: 0;
@@ -17,7 +19,7 @@ a.active,
 a:active,
 a:visited,
 a:focus {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /* Header Styles */
@@ -755,3 +757,790 @@ a.toggle-menu {
   }
 }
 /* cart increament Styles */
+
+/* /Our Story Styles start/ */
+
+.our-story-txt h2 {
+  font-size: 107px;
+  color: #bababa;
+  font: Feathergraphy, Decoration;
+  font-weight: 400;
+  width: 50%;
+  margin: 0 auto;
+  padding: 3%;
+  text-align: center;
+}
+.our-story-cont {
+  padding: 1% 5%;
+}
+.our-story-cont p,
+.our-story-cont h4 {
+  font-size: 30px;
+  color: #3b3b3b;
+  font-family: Roboto;
+  padding: 0 0 2% 0;
+}
+.ful-wid-img {
+  width: 100%;
+}
+.mob-414 {
+  display: none;
+}
+.desk-414 {
+  display: block;
+}
+@media (max-width: 1024px) {
+  .our-story-cont p,
+  .our-story-cont h4 {
+    font-size: 30px;
+  }
+  .our-story-txt h2 {
+    font-size: 75px;
+  }
+}
+@media (max-width: 768px) {
+  .our-story-cont p,
+  .our-story-cont h4 {
+    font-size: 22px;
+    line-height: 2;
+  }
+  .our-story-txt h2 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 414px) {
+  .our-story-txt h2 {
+    font-size: 40px;
+  }
+  .mob-414 {
+    display: block;
+  }
+  .desk-414 {
+    display: none;
+  }
+  .our-story-cont {
+    padding: 1%;
+  }
+}
+/* /Our Story Styles end/ */
+
+/* Location Style Starts*/
+.loc-pop-box {
+  width: 40%;
+  background-color: #fcf6f6;
+  padding: 2%;
+}
+.loc-pop-box h2 {
+  font-size: 29px;
+  color: #444444;
+}
+.loc-pop-box .dairy-txt {
+  font-size: 32px;
+  color: #ff9a23;
+  font-weight: bold;
+}
+.loc-pop-box h4 {
+  font-size: 20px;
+  color: #565555;
+  padding-left: 5%;
+}
+.wid-half {
+  width: 60%;
+}
+.dis-flx {
+  display: flex;
+}
+.bwtn-or-color {
+  color: #bababa;
+  font-size: 18px;
+  padding: 0 2%;
+  display: inline-block;
+}
+.dtct-loc-btn {
+  background-color: #ff9a23;
+  padding: 2%;
+  width: 40%;
+  font-size: 18px;
+  color: #fff;
+  border: #ff9a23;
+  border-radius: 5px;
+}
+.loc-txt-box {
+  width: 40%;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 2%;
+  border: 1px solid #d6d6d6;
+}
+.rnd-or-txt {
+  border-radius: 50%;
+  border: 1px solid #bababa;
+  width: 20%;
+  padding: 10px;
+}
+@media (max-width: 1366px) {
+  .loc-pop-box h4 {
+    font-size: 16px;
+  }
+  .wid-half {
+    width: 70%;
+  }
+}
+@media (max-width: 1024px) {
+  .loc-pop-box .dairy-txt {
+    font-size: 24px;
+  }
+  .loc-pop-box h2 {
+    font-size: 22px;
+  }
+  .loc-txt-box,
+  .dtct-loc-btn,
+  .bwtn-or-color {
+    font-size: 16px;
+  }
+  .loc-pop-box {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .loc-pop-box {
+    width: 60%;
+  }
+}
+@media (max-width: 640px) {
+  .loc-pop-box {
+    width: 70%;
+  }
+}
+@media (max-width: 414px) {
+  .loc-pop-box .dairy-txt,
+  .loc-pop-box h2 {
+    font-size: 18px;
+  }
+  .loc-pop-box h4,
+  .loc-txt-box,
+  .dtct-loc-btn,
+  .bwtn-or-color {
+    font-size: 14px;
+  }
+  .loc-pop-box {
+    width: 100%;
+  }
+}
+@media (max-width: 414px) {
+  .rnd-or-txt {
+    padding: 5px;
+  }
+  .loc-pop-box h4,
+  .loc-txt-box,
+  .dtct-loc-btn,
+  .bwtn-or-color {
+    font-size: 12px;
+  }
+}
+
+/* Location Style Ends*/
+
+/*Checkout style starts */
+.collapse-bg {
+  background-color: #e5e5e5;
+}
+.collapse-cnt {
+  width: 70%;
+  margin: 0 auto;
+  padding: 3% 0;
+}
+.collapsed .clpsd-dis-blck {
+  display: none;
+}
+.btn-in-blk {
+  display: inline-block;
+}
+.clpsd-btn-fl-rgt {
+  float: right;
+}
+.rund-nmbr {
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 8px 14px;
+  font-size: 18px;
+  margin-right: 2%;
+  display: inline-block;
+}
+.collapse-cnt h2 {
+  font-size: 22px;
+  color: #3b3b3b;
+
+  width: 80%;
+}
+.collapse-cnt h2 .mbl-nmbr-txt {
+  font-size: 18px;
+  color: #3b3b3b;
+
+  padding-left: 10%;
+}
+.collapse-body-txt {
+  padding: 2% 5% 2% 8% !important;
+}
+.collapse-body-txt h4 {
+  font-size: 18px;
+  color: #a1a1a1;
+  font-weight: normal;
+}
+.collapse-body-txt h5 {
+  font-size: 17px;
+  color: #000;
+  font-weight: normal;
+  padding: 2% 0 2% 0;
+}
+.collapse-body-txt h6 {
+  font-size: 16px;
+  color: rgb(161, 159, 159);
+  font-weight: normal;
+
+  padding: 2% 0;
+}
+.otp-box-wid-hgt input {
+  width: 3.5rem !important;
+  height: 3rem;
+}
+.otp-sub-btn {
+  background-color: #3b3b3b;
+  color: #fff;
+  height: 3rem;
+  padding: 0 5%;
+  margin: 0 0 0 5%;
+  border-radius: 5%;
+}
+.otp-btn-dis-flx {
+  display: flex;
+}
+.mbl-nmbr-edit-txt {
+  color: rgb(241, 185, 31);
+}
+.edit-btn {
+  padding: 1%;
+  background-color: #fff;
+  border: 1px solid #f5b608;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 5rem;
+}
+
+.collapse-cnt .accordion .card .card-header {
+  padding: 3%;
+  background-color: #f9f9f9;
+}
+.collapse-cnt .accordion .card .card-body {
+  background-color: #ffffff;
+}
+.new-add-red-txt h5 {
+  color: #e66151;
+  font-weight: 500;
+}
+.rund-smbl-red {
+  border: 1px solid #e66151;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 16px;
+  margin-right: 2%;
+  display: inline-block;
+}
+.add-shdw-box {
+  width: 45%;
+  box-shadow: 1px 1px 7px 2px #bababa;
+  padding: 4%;
+}
+.dlvr-btn {
+  width: -webkit-fill-available;
+  padding: 3% 0;
+  background-color: #e96125;
+  color: #fff;
+  margin: 10% 0 0 0;
+  border: #e96125;
+  font-size: 18px;
+  border-radius: 4px;
+}
+.add-shdw-box h5 {
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
+}
+.date-pick-tab .MuiTab-root {
+  min-width: auto;
+  min-height: auto;
+  width: auto;
+  height: auto;
+  border-right: 1px solid #dcd4d4;
+  padding: 0;
+}
+.date-pick-tab .MuiTab-wrapper {
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.date-pick-tab .Mui-selected .MuiTab-wrapper p,
+.date-pick-tab .MuiTab-wrapper p {
+  font-size: 14px;
+  margin: 0;
+}
+.date-pick-tab .Mui-selected .MuiTab-wrapper,
+.date-pick-tab .MuiTab-wrapper {
+  font-size: 9px;
+}
+.date-pick-tab .Mui-selected {
+  color: #fff;
+  background-color: #f59e00;
+  font-weight: bold;
+  border: 1px solid #f59e00;
+}
+.date-pick-tab .Mui-selected .MuiTab-wrapper,
+.date-pick-tab .Mui-selected .MuiTab-wrapper p {
+  color: #fff;
+  padding: 0;
+}
+.date-pick-tab .MuiTabs-flexContainer {
+  display: flex;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+.date-pick-tab .PrivateTabIndicator-colorSecondary-5 {
+  display: none;
+}
+.dptab .collapse-body-txt {
+  padding: 2% 30% 2% 10% !important;
+}
+
+@media (max-width: 1366px) {
+  .collapse-body-txt h4 {
+    font-size: 15px;
+  }
+  .collapse-cnt h2 {
+    font-size: 20px;
+  }
+  .collapse-cnt h2 .mbl-nmbr-txt {
+    font-size: 16px;
+  }
+  .collapse-body-txt h5 {
+    font-size: 15px;
+  }
+  .collapse-body-txt h6 {
+    font-size: 14px;
+  }
+  .dlvr-btn {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1280px) {
+  .add-shdw-box {
+    width: 55%;
+  }
+}
+@media (max-width: 1024px) {
+  .collapse-cnt h2 {
+    font-size: 18px;
+  }
+  .collapse-cnt h2 .mbl-nmbr-txt {
+    font-size: 15px;
+  }
+  .collapse-body-txt h5 {
+    font-size: 12px;
+  }
+  .collapse-body-txt h4 {
+    font-size: 14px;
+  }
+  .collapse-body-txt h6 {
+    font-size: 11px;
+  }
+  .otp-sub-btn {
+    height: 2.5rem;
+  }
+  .otp-box-wid-hgt input {
+    width: 3rem !important;
+    height: 2.5rem;
+  }
+  .edit-btn {
+    font-size: 12px;
+    width: 4rem;
+  }
+  .add-shdw-box {
+    width: 55%;
+  }
+  .dlvr-btn {
+    font-size: 13px;
+  }
+  .dptab .collapse-body-txt {
+    padding: 2% 10% 2% 10% !important;
+  }
+  .date-pick-tab .Mui-selected .MuiTab-wrapper p,
+  .date-pick-tab .MuiTab-wrapper p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 991px) {
+  .dptab .collapse-body-txt {
+    padding: 2% 30% 2% 10% !important;
+  }
+  .add-shdw-box {
+    width: 50%;
+  }
+  .collapse-body-txt h5 {
+    font-size: 14px;
+  }
+  .collapse-body-txt h4 {
+    font-size: 16px;
+  }
+  .edit-btn {
+    font-size: 13px;
+    width: 5rem;
+  }
+}
+@media (max-width: 768px) {
+  .add-shdw-box {
+    width: 60%;
+  }
+}
+@media (max-width: 640px) {
+  .collapse-body-txt h4 {
+    font-size: 14px;
+  }
+  .collapse-cnt {
+    width: 90%;
+  }
+}
+@media (max-width: 414px) {
+  .collapse-cnt h2 {
+    font-size: 15px;
+  }
+  .collapse-cnt .card-header {
+    display: flex;
+  }
+  .collapse-cnt h2 .mbl-nmbr-txt {
+    font-size: 12px;
+    padding-left: 18%;
+  }
+  .edit-btn {
+    font-size: 10px;
+    width: 3rem;
+    height: fit-content;
+  }
+  .collapse-body-txt h4 {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .collapse-body-txt h6 {
+    font-size: 9px;
+  }
+  .add-shdw-box {
+    width: 95%;
+  }
+  .collapse-body-txt h5 {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .dptab .collapse-body-txt {
+    padding: 2% 10% 2% 10% !important;
+  }
+  .date-pick-tab .Mui-selected .MuiTab-wrapper p,
+  .date-pick-tab .MuiTab-wrapper p {
+    font-size: 10px;
+  }
+  .date-pick-tab .Mui-selected .MuiTab-wrapper,
+  .date-pick-tab .MuiTab-wrapper {
+    font-size: 8px;
+  }
+  .otp-box-wid-hgt input {
+    width: 2.5rem !important;
+    height: 2.5rem;
+  }
+  .otp-sub-btn {
+    font-size: 12px;
+  }
+}
+/* Checkout style Ends */
+
+/* Subscribe style Starts */
+.A2-milk {
+  background-color: #8fcecf;
+}
+.A2-milk .content-head h2 {
+  color: #fff;
+  font-size: 65px;
+}
+.A2-milk .content-head p {
+  color: #fff;
+  font-size: 20px;
+}
+.A2-milk .price-details p {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.A2-milk .price-details button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: #fff;
+  font-size: 25px;
+  line-height: 1;
+}
+.A2-milk .price-details input[type="text"] {
+  width: 50px;
+  text-align: center;
+  margin: 0 10px;
+  font-size: 20px;
+  background: transparent;
+  border: transparent;
+  box-shadow: inset 0px 1px 8px rgb(0 0 0 / 20%);
+  border-radius: 5px;
+  padding: 8px;
+  outline: none;
+}
+.A2-milk ul li {
+  width: 25%;
+  text-align: center;
+}
+.A2-milk ul li a {
+  font-size: 25px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 25px;
+  box-shadow: inset 0px -1px 5px rgb(0 0 0 / 20%);
+}
+.A2-milk .subscribe_btn {
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  color: #fff !important;
+  width: 60%;
+}
+.A2-milk .subscribe_btn.subscribe {
+  background: #f05a22;
+  border-color: #f05a22;
+}
+
+.A2-milk .subscribe_btn.subscribe:focus,
+.A2-milk .subscribe_btn.subscribe:active:focus {
+  box-shadow: 0 0 0 0.25rem rgb(255 121 70);
+}
+.A1-milk {
+  background-color: #e66151;
+}
+.A1-milk .content-head h2 {
+  color: #fff;
+  font-size: 65px;
+}
+.A1-milk .content-head p {
+  color: #fff;
+  font-size: 20px;
+}
+.A1-milk .price-details p {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.A1-milk .price-details button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: #fff;
+  font-size: 25px;
+  line-height: 1;
+}
+.A1-milk .price-details input[type="text"] {
+  width: 50px;
+  text-align: center;
+  margin: 0 10px;
+  font-size: 20px;
+  background: transparent;
+  border: transparent;
+  box-shadow: inset 0px 1px 8px rgb(0 0 0 / 20%);
+  border-radius: 5px;
+  padding: 8px;
+  outline: none;
+}
+.A1-milk ul li {
+  width: 25%;
+  text-align: center;
+}
+.A1-milk ul li a {
+  font-size: 25px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 25px;
+  box-shadow: inset 0px -1px 5px rgb(0 0 0 / 20%);
+}
+.A1-milk .subscribe_btn {
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  color: #fff !important;
+  width: 60%;
+}
+.A1-milk .subscribe_btn.subscribe {
+  background: #652d93;
+  border-color: #652d93;
+}
+
+.A1-milk .subscribe_btn.subscribe:focus,
+.A1-milk .subscribe_btn.subscribe:active:focus {
+  box-shadow: 0 0 0 0.25rem rgb(122 81 156);
+}
+
+.subscription_popup .MuiDialog-paper {
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 40px;
+  background: #21cbc9;
+  color: #fff;
+}
+.subscription_popup .MuiOutlinedInput-root {
+  background-color: #fff;
+}
+.subscription_popup input {
+  outline: none;
+}
+.subscription_popup .MuiOutlinedInput-notchedOutline {
+  border-color: #fff !important;
+  outline: none;
+}
+.subscription_popup .MuiDialog-paper .MuiOutlinedInput-notchedOutline {
+  top: 0;
+}
+
+.delivery-schedule {
+  padding: 15px 10px;
+  background: #fff;
+  color: #000;
+  margin: 0 !important;
+  border-radius: 5px;
+  margin-top: 16px !important;
+  margin-bottom: 8px !important;
+}
+
+.cst_del_radio label,
+.cst_del_radio input[type="radio"] {
+  cursor: pointer;
+}
+
+.cst_del_radio input[type="radio"]:checked {
+  background-color: #21cbc9 !important;
+  border-color: #21cbc9 !important;
+}
+.cst_del_radio input[type="radio"]:focus {
+  box-shadow: 0 0 0 0.25rem rgb(213 255 255) !important;
+}
+.oninterval-tab {
+  padding: 20px 0;
+  justify-content: space-evenly;
+}
+.oninterval-tab li {
+  width: 30%;
+}
+.oninterval-tab li a {
+  cursor: pointer;
+  color: #000;
+  padding: 8px;
+  display: block;
+  box-shadow: 0px 2px 5px 3px rgb(216 216 216 / 50%);
+  margin: 5px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.oninterval-tab li a.active {
+  background-color: #21cbc9;
+  color: #fff;
+}
+.interval-tab {
+  display: none;
+}
+.ring_btn {
+  display: block !important;
+  width: 100%;
+  border-radius: 25px !important;
+  padding: 10px 5px !important;
+  font-size: 20px !important;
+  background: #fff !important;
+  border-color: #fff !important;
+  color: #ccc !important;
+}
+.pop_subscribe {
+  border-radius: 25px !important;
+  padding: 5px 45px !important;
+  font-size: 25px !important;
+  background-color: #ff8000 !important;
+  border-color: #ff8000 !important;
+  color: white !important;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.pop_subscribe:focus,
+.pop_subscribe:active:focus {
+  box-shadow: 0 0 4px 2px rgb(255 212 168);
+}
+.pop_subscribe_link {
+  font-size: 12px;
+}
+/* Subscribe style Ends */
+
+/* Subscription Date Format Style Starts */
+
+.subs-date-format .table th {
+  text-align: center;
+  padding: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 1px solid #dee2e6 !important;
+  border-top: none !important;
+}
+.subs-date-format .table td span {
+  padding: 10px;
+  display: block;
+  margin: 3px auto;
+  width: 50px;
+  border-top: none !important;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+}
+.subs-date-format table tr td.disable span {
+  color: #ccc;
+}
+.subs-date-format table tr td.active span {
+  background: #e8faf9;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.subs-date-format h4 {
+  font-size: 20px;
+  color: #000;
+  padding: 20px 0 5px 15px;
+}
+.spacer {
+  border-collapse: separate;
+  border-spacing: 0 2px;
+  width: 100%;
+}
+.spacer tr {
+  border: none;
+}
+/* Subscription Date Format Style Ends*/
+.subscription_popup ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px #05b6b3;
+  background: #05b6b3;
+}

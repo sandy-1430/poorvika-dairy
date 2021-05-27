@@ -65,8 +65,6 @@ export default function Header() {
   const userSignin = useSelector((state) => state.userSignin);
   const { loading, userInfo } = userSignin;
 
-  const userData = useSelector((state) => state.userData);
-  const { userdata } = userData;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -113,7 +111,6 @@ export default function Header() {
   };
   return (
     <div className="header">
-      {userdata && console.log(userdata)}
       {loading && loading ? (
         <div>
           <LoadingBox />
@@ -122,14 +119,14 @@ export default function Header() {
         <div>
           <div className="d-flex flex-wrap align-items-center top-header">
             <div className="cst_brand">
-              <Link to="/product">
+              <Link to="/">
                 <img src="images/logo.png" className="header-logo" />
               </Link>
             </div>
             <div className="cst_top_nav">
               <ul className="d-flex flex-wrap align-items-center m-0 p-0">
                 <li>
-                  <a>Our Story</a>
+                  <Link to="/story">Our Story</Link>
                 </li>
                 <li>
                   <a>Our Suppliers</a>
